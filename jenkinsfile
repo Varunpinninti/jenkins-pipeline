@@ -1,0 +1,14 @@
+node {
+    stage ('git') {
+        git branch: 'development', credentialsId: 'a298a4ff-fd31-45d4-9aae-6dd3a6c1b4d7', url: 'https://github.com/Varunreddy108/maven-web-application.git'
+    }
+    stage ('validate') {
+        sh 'mvn validate'
+    }
+    stage ('compile') {
+        sh 'mvn compile'
+    }
+    stage ('clean') {
+        sh 'mvn clean'
+    }
+}
